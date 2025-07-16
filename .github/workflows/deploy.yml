@@ -29,16 +29,8 @@ jobs:
       - name: Build PDF
         run: typst compile data_science.typ data_science.pdf
 
-      - name: Convert PDF to HTML
+      - name: Create HTML viewer
         run: |
-          # Install pdf2htmlEX
-          sudo apt-get update
-          sudo apt-get install -y pdf2htmlex
-          
-          # Convert PDF to HTML
-          pdf2htmlEX --zoom 1.3 --dest-dir . data_science.pdf
-          
-          # Create a simple HTML wrapper
           cat > index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="fr">
@@ -76,11 +68,10 @@ jobs:
                       font-size: 1.2em;
                       opacity: 0.9;
                   }
-                  .cv-frame {
+                  .pdf-viewer {
                       width: 100%;
                       min-height: 800px;
                       border: none;
-                      display: block;
                   }
                   .download-section {
                       padding: 20px;
@@ -97,6 +88,7 @@ jobs:
                       border-radius: 5px;
                       font-weight: bold;
                       transition: background-color 0.3s;
+                      margin: 0 10px;
                   }
                   .download-btn:hover {
                       background-color: #1e356a;
@@ -108,6 +100,9 @@ jobs:
                       .header h1 {
                           font-size: 2em;
                       }
+                      .pdf-viewer {
+                          min-height: 600px;
+                      }
                   }
               </style>
           </head>
@@ -118,30 +113,20 @@ jobs:
                       <p>CV - Data Science</p>
                   </div>
                   
-                  <iframe src="data_science.html" class="cv-frame" id="cv-frame"></iframe>
+                  <object class="pdf-viewer" data="data_science.pdf" type="application/pdf">
+                      <p>Votre navigateur ne supporte pas l'affichage PDF. 
+                         <a href="data_science.pdf">Télécharger le CV</a></p>
+                  </object>
                   
                   <div class="download-section">
                       <a href="data_science.pdf" class="download-btn" download>
                           📄 Télécharger le CV (PDF)
                       </a>
+                      <a href="data_science.typ" class="download-btn" download>
+                          📝 Code Source (Typst)
+                      </a>
                   </div>
               </div>
-              
-              <script>
-                  // Auto-resize iframe to fit content
-                  function resizeIframe() {
-                      const iframe = document.getElementById('cv-frame');
-                      try {
-                          iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + 'px';
-                      } catch (e) {
-                          // Fallback height if cross-origin issues
-                          iframe.style.height = '1200px';
-                      }
-                  }
-                  
-                  document.getElementById('cv-frame').onload = resizeIframe;
-                  window.addEventListener('resize', resizeIframe);
-              </script>
           </body>
           </html>
           EOF
