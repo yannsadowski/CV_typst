@@ -2,7 +2,7 @@
 
 // Informations personnelles / Personal Information
 #let name = "Yann Sadowski"
-#let location = "Pau, France"
+#let location = "Antibes, France"
 #let email = "sadowski.yann@gmail.com"
 #let github = "github.com/yannsadowski" // À adapter selon votre profil GitHub
 #let linkedin = "linkedin.com/in/yann-sadowski/" // À adapter selon votre profil LinkedIn
