@@ -104,7 +104,7 @@ Passionné en Intelligence Artificielle spécialisé en séries temporelles et a
 
 == Expérience Professionnelle
 #work(
-  title: "Développeur IA",
+  title: "Contrat pré-thèse",
   location: " Sophia Antipolis Cedex,France",
   company: "Docaposte",
   dates: dates-helper(start-date: "Nov 2025", end-date: "Janv 2026"),
