@@ -107,7 +107,7 @@ Passionné en Intelligence Artificielle spécialisé en séries temporelles et a
   title: "Contrat pré-thèse",
   location: " Sophia Antipolis Cedex,France",
   company: "Docaposte",
-  dates: dates-helper(start-date: "Nov 2025", end-date: "Janv 2026"),
+  dates: dates-helper(start-date: "Nov 2025", end-date: "Présent"),
 )
 - Début de mission en tant que Développeur Intelligence Artificielle au sein de Docaposte.
 - Participation à des projets de recherche et développement en IA, dans le cadre d’un pré-doctorat pour une thèse CIFRE.
